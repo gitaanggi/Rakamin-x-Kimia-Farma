@@ -1,8 +1,6 @@
 -- Membuat tabel baru langsung di dalam dataset kimia_farma
 CREATE OR REPLACE TABLE `rakamin-kf-analytics-gita.kimia_farma.tabel_analisa` AS
 
--- Menggunakan CTE untuk merapikan penggabungan (JOIN) dan pembuatan persentase laba
-
 SELECT
   t.transaction_id,
   t.date,
@@ -17,7 +15,7 @@ SELECT
   t.price AS actual_price,
   t.discount_percentage,
 
-    -- Membuat tiering persentase laba berdasarkan instruksi
+    -- Membuat tiering persentase laba
   CASE
     WHEN t.price <= 50000 THEN 0.10
     WHEN t.price > 50000 AND t.price <= 100000 THEN 0.15
